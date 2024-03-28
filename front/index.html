@@ -7,15 +7,18 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="../back/public/data.js"></script>
 <style>
+  
   .graphiques-container {
+    max-width: 90%;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
   
   h2 {
-        text-align: center;
-    }
+    text-align: center;
+  }
 
   .graphique {
     flex: 1 1 400px; /* Cela signifie que chaque graphique tentera de prendre au moins 400px de largeur, mais peut s'étendre si l'espace le permet. */
@@ -23,6 +26,8 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Un peu d'ombre pour le style */
     padding: 20px;
     box-sizing: border-box;
+    min-width: 55%;
+    height: auto;
   }
 
   canvas {
@@ -46,19 +51,47 @@
     height: 100%;
   }
 
+  .title {
+    margin: 0 40px 0 40px;
+    border-bottom: solid rgba(197, 195, 195, 0.466);
+  }
 
+  @media screen and (max-width: 465px) {
+    .graphique {
+      min-width: 380px;
+    }
+    h2{
+      font-size: 22px;
+    }
+  }
 </style>
 
 </head>
 <body>
-
-<h2>Back Office - Graphiques des Questions</h2>
+<div class="title">
+  <h2>Back Office - Graphiques des Questions</h2>
+</div>
 <div class="graphiques-container">
-    <div class="graphique"><canvas id="graphiqueQuestion1"></canvas></div>
-    <div class="graphique-petit"><canvas id="graphiqueQuestion2"></canvas></div>
-    <div class="graphique-petit"><canvas id="graphiqueQuestion3"></canvas></div>
-    <div class="graphique"><canvas id="graphiqueQuestion4"></canvas></div> <!-- Classe spécifique pour petite taille -->
-    <div class="graphique"><canvas id="graphiqueQuestion5"></canvas></div> <!-- Classe spécifique pour petite taille -->
+    <div class="graphique">
+      <h2>Es tu content d'aller à l'école ?</h2>
+      <canvas id="graphiqueQuestion1"></canvas>
+    </div>
+    <div class="graphique-petit">
+      <h2>As-tu peur d'aller à l'école ?</h2>
+      <canvas id="graphiqueQuestion2"></canvas>
+    </div>
+    <div class="graphique-petit">
+      <h2>Te fais-tu embêter ?</h2>
+      <canvas id="graphiqueQuestion3"></canvas>
+    </div>
+    <div class="graphique">
+      <h2>As-tu confiance dans les adultes que tu vois pendant la journée ?</h2>
+      <canvas id="graphiqueQuestion4"></canvas>
+    </div> <!-- Classe spécifique pour petite taille -->
+    <div class="graphique">
+      <h2>Comment te sens tu ?</h2>
+      <canvas id="graphiqueQuestion5"></canvas>
+    </div> <!-- Classe spécifique pour petite taille -->
 </div>
 
   
